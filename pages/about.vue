@@ -93,9 +93,6 @@ export default {
       title: `About | ${this.$siteConfig.siteName}`
     }
   },
-  components: { QuoteCard },
-  mounted() {
-    this.push('WEB', 'VIEW', '/about')
-  }
+  components: { QuoteCard }
 }
 </script>

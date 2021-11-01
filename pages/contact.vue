@@ -57,9 +57,6 @@ export default {
       title: `Contact | ${this.$siteConfig.siteName}`
     }
   },
-  components: { ContactForm },
-  mounted() {
-    this.push('WEB', 'VIEW', '/contact')
-  }
+  components: { ContactForm }
 }
 </script>

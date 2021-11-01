@@ -52,9 +52,6 @@ export default {
   beforeDestroy() {
     // removes event listener
     this.$nuxt.$off('click')
-  },
-  mounted() {
-    this.push('WEB', 'VIEW', '/home')
   }
 }
 </script>
