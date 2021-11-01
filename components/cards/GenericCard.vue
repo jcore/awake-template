@@ -39,6 +39,12 @@
               <slot></slot>
             </h4>
           </nuxt-link>
+          <button @click="onClick">
+            Add to Cart
+          </button>
+          <button @click="onClickOrder">
+            One Click Order
+          </button>
         </div>
       </div>
     </div>
@@ -72,6 +78,16 @@ export default {
         return require(`~/assets${this.image}`)
       }
       return { src: this.image, srcSet: '' }
+    }
+  },
+  methods: {
+    onClick() {
+      console.log('link clicked')
+      this.boxeverAddProduct('WEB', 'ADD', this.link)
+    },
+    onClickOrder() {
+      console.log('link clicked')
+      this.boxeverOrderProduct('WEB', 'ADD', this.link)
     }
   }
 }

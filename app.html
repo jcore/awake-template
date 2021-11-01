@@ -38,29 +38,5 @@
         // (<event msg>, <callback function>, <format>)
         Boxever.eventCreate(searchEvent, function(data){}, 'json');
       });
-
-      _boxeverq.push(function() { 
-        var searchEvent = {
-          'clientKey': 'psfu6uh05hsr9c34rptlr06dn864cqrx',
-          'browser_id': Boxever.getID(),
-          'pos': 'JuliaGavrilova-pos',
-          'channel': 'WEB',
-          'type': 'IDENTITY',
-          'language': 'EN',
-          'currency': 'EUR',
-          'page': '/home',
-          'email': 'julia.gavrilova@test.com',
-          'firstname': 'Julia',
-          'lastname': 'Gavrilova',
-          'identifiers': [{
-              'provider': 'PROFILE_ID',
-              'id': 'UX1357'
-            }]
-        };
-        // Invoke event create 
-        // (<event msg>, <callback function>, <format>)
-        Boxever.eventCreate(searchEvent, function(data){}, 'json');
-      });
-
   </script>
 </html>

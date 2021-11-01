@@ -28,6 +28,11 @@
         <li class="navbar-item site-search-wrapper">
           <site-search />
         </li>
+        <li>
+          <div @click="login">
+            Login
+          </div>
+        </li>
       </ul>
     </div>
   </nav>
@@ -41,6 +46,11 @@ export default {
   data() {
     return {
       active: false
+    }
+  },
+  methods: {
+    login() {
+      this.identifyGuest()
     }
   }
 }
