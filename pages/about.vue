@@ -1,10 +1,6 @@
 <template>
   <div id="about-page" class="page-wrapper about-page content-page">
-    <site-hero
-      title="About Us"
-      subtitle="Example About Page"
-      image="/uploads/about-hero.jpg"
-    ></site-hero>
+    <site-hero title="About Us" subtitle="Example About Page" image="/uploads/about-hero.jpg"></site-hero>
     <main-section theme="sidebar-right">
       <template v-slot:default>
         <div class="content">
@@ -15,30 +11,25 @@
             </strong>
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-            eligendi impedit inventore ipsa laboriosam libero magnam modi odio,
-            sunt temporibus. Distinctio doloremque eum magni nostrum quasi
-            ratione rem repudiandae sit!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi impedit inventore ipsa
+            laboriosam libero magnam modi odio, sunt temporibus. Distinctio doloremque eum magni nostrum quasi ratione
+            rem repudiandae sit!
           </p>
 
           <h3>Another Fake Heading</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-            eligendi impedit inventore ipsa laboriosam libero magnam modi odio,
-            sunt temporibus. Distinctio doloremque eum magni nostrum quasi
-            ratione rem repudiandae sit!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi impedit inventore ipsa
+            laboriosam libero magnam modi odio, sunt temporibus. Distinctio doloremque eum magni nostrum quasi ratione
+            rem repudiandae sit!
           </p>
           <quote-card />
           <h3>Still More Fake Content</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-            eligendi impedit inventore ipsa laboriosam libero magnam modi odio,
-            sunt temporibus. Distinctio doloremque eum magni nostrum quasi
-            ratione rem repudiandae sit! Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit.
-            <strong>Alias aut facere harum ipsam</strong> quibusdam quidem
-            quisquam saepe? Alias architecto blanditiis consequatur consequuntur
-            dicta ipsa iste modi provident, quod, similique veritatis.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi impedit inventore ipsa
+            laboriosam libero magnam modi odio, sunt temporibus. Distinctio doloremque eum magni nostrum quasi ratione
+            rem repudiandae sit! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            <strong>Alias aut facere harum ipsam</strong> quibusdam quidem quisquam saepe? Alias architecto blanditiis
+            consequatur consequuntur dicta ipsa iste modi provident, quod, similique veritatis.
           </p>
         </div>
 
@@ -102,6 +93,9 @@ export default {
       title: `About | ${this.$siteConfig.siteName}`
     }
   },
-  components: { QuoteCard }
+  components: { QuoteCard },
+  mounted() {
+    this.push('WEB', 'VIEW', '/about')
+  }
 }
 </script>

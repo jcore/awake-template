@@ -3,27 +3,19 @@
     :title="title"
     :image="image"
     :link="link"
-    :image-dimensions="
-      $siteConfig.posts.imageDimensions ||
-        $siteConfig.cards.imageDimensions ||
-        null
-    "
+    :image-dimensions="$siteConfig.posts.imageDimensions || $siteConfig.cards.imageDimensions || null"
   >
-    <span
-      v-if="author && $siteConfig.posts.displayAuthor"
-      class="author-wrapper"
-    >
+    <span v-if="author && $siteConfig.posts.displayAuthor" class="author-wrapper">
       <strong>Author:</strong> {{ author }} |
     </span>
-    <span v-if="date" class="date-wrapper">
-      <strong>Published on:</strong> {{ datePretty }}
-    </span>
+    <span v-if="date" class="date-wrapper"> <strong>Published on:</strong> {{ datePretty }} </span>
   </generic-card>
 </template>
 
 <script>
 import GenericCard from './GenericCard'
 import { getFormattedDate } from '~/helper'
+
 export default {
   components: { GenericCard },
   props: {

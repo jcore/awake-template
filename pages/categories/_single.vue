@@ -1,10 +1,6 @@
 <template>
   <div id="category-page" class="page-wrapper category-page">
-    <site-hero
-      :title="$store.state.name"
-      :subtitle="$store.state.content"
-      :image="$store.state.image"
-    />
+    <site-hero :title="$store.state.name" :subtitle="$store.state.content" :image="$store.state.image" />
     <main-section theme="sidebar-right">
       <template v-slot:default>
         <!-- Posts in Category -->

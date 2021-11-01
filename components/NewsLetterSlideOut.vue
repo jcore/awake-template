@@ -1,11 +1,5 @@
 <template>
-  <article
-    :class="
-      `subscribe-form-wrapper message is-dark subtle-box-shadow ${
-        active ? 'active' : ''
-      }`
-    "
-  >
+  <article :class="`subscribe-form-wrapper message is-dark subtle-box-shadow ${active ? 'active' : ''}`">
     <div class="message-header">
       <font-awesome-icon
         :icon="active ? 'times' : 'envelope'"
@@ -32,9 +26,7 @@ export default {
   },
   computed: {
     header() {
-      return (
-        this.$siteConfig.newsletter.heading || 'Subscribe to Our Newsletter'
-      )
+      return this.$siteConfig.newsletter.heading || 'Subscribe to Our Newsletter'
     }
   },
   methods: {

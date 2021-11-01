@@ -1,15 +1,10 @@
 <template>
   <div id="post-page" class="page-wrapper post-page">
     <site-hero :title="title" :subtitle="subtitle" :image="featureImage">
-      <span
-        v-if="author && $siteConfig.posts.displayAuthor"
-        class="author-wrapper"
-      >
+      <span v-if="author && $siteConfig.posts.displayAuthor" class="author-wrapper">
         <strong>Author:</strong> {{ author }}
       </span>
-      <span v-if="date" class="date-wrapper">
-        <strong>Published on:</strong> {{ date }}
-      </span>
+      <span v-if="date" class="date-wrapper"> <strong>Published on:</strong> {{ date }} </span>
     </site-hero>
     <main-section :one-column-constrained="true">
       <template v-slot:default>
@@ -43,15 +38,7 @@ export default {
     PostSidebar
   },
   computed: {
-    ...mapState([
-      'title',
-      'subtitle',
-      'featureImage',
-      'underSubtitle',
-      'author',
-      'category',
-      'slug'
-    ]),
+    ...mapState(['title', 'subtitle', 'featureImage', 'underSubtitle', 'author', 'category', 'slug']),
     date() {
       return getFormattedDate(this.$store.state.date)
     },

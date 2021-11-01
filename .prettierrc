@@ -1,5 +1,8 @@
 {
   "semi": false,
   "arrowParens": "always",
-  "singleQuote": true
+  "singleQuote": true,
+  "printWidth": 120,
+  "endOfLine":"auto",
+  "spaceBeforeFunctionParen": true
 }

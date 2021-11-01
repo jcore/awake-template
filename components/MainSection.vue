@@ -2,28 +2,21 @@
   <main class="section page-main-section">
     <div class="container">
       <div class="columns">
-        <aside
-          v-if="computedTheme === 'sidebar-left'"
-          class="column left-sidebar is-one-quarter"
-        >
+        <aside v-if="computedTheme === 'sidebar-left'" class="column left-sidebar is-one-quarter">
           <slot name="sidebar"></slot>
         </aside>
         <div
           :class="{
             column: true,
             'is-full': computedTheme === 'one-column' && !oneColumnConstrained,
-            'is-offset-2':
-              oneColumnConstrained && computedTheme === 'one-column',
+            'is-offset-2': oneColumnConstrained && computedTheme === 'one-column',
             'is-8': oneColumnConstrained && computedTheme === 'one-column',
             'is-three-quarters': computedTheme !== 'one-column'
           }"
         >
           <slot></slot>
         </div>
-        <aside
-          v-if="computedTheme === 'sidebar-right'"
-          class="column right-sidebar is-one-quarter"
-        >
+        <aside v-if="computedTheme === 'sidebar-right'" class="column right-sidebar is-one-quarter">
           <slot name="sidebar"></slot>
         </aside>
       </div>

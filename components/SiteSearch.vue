@@ -21,11 +21,7 @@
 
       <ul v-if="matches" class="search-results subtle-box-shadow">
         <div v-if="matches.length">
-          <li
-            v-for="match in matches"
-            :key="match.slug"
-            @click="toggleSearchBar()"
-          >
+          <li v-for="match in matches" :key="match.slug" @click="toggleSearchBar()">
             <nuxt-link :to="`/${match.slug}`">
               {{ match.title }}
             </nuxt-link>
@@ -35,20 +31,13 @@
 
         <li v-else>
           No results found
-          <font-awesome-icon
-            icon="times"
-            @click="toggleSearchBar()"
-          ></font-awesome-icon>
+          <font-awesome-icon icon="times" @click="toggleSearchBar()"></font-awesome-icon>
         </li>
       </ul>
     </span>
 
     <label for="search-input">
-      <font-awesome-icon
-        icon="search"
-        class="search-icon"
-        @click="toggleSearchBar()"
-      />
+      <font-awesome-icon icon="search" class="search-icon" @click="toggleSearchBar()" />
     </label>
   </div>
 </template>
@@ -86,9 +75,7 @@ export default {
         this.matches = false
         return
       }
-      const posts = this.haystack.length
-        ? this.haystack
-        : await this.$axios.$get('/api/posts.json')
+      const posts = this.haystack.length ? this.haystack : await this.$axios.$get('/api/posts.json')
       const matches = posts.filter((match) => {
         return (
           match.content
@@ -105,9 +92,7 @@ export default {
     },
     getMatchSnippet(query, haystack) {
       const cleanQuery = query.toLowerCase()
-      const words = haystack
-        .toLowerCase()
-        .replace(/#|_|-|~|>|\*|!|\+|`|\||\[|\]|_|:/g, '')
+      const words = haystack.toLowerCase().replace(/#|_|-|~|>|\*|!|\+|`|\||\[|\]|_|:/g, '')
       const pos = words.indexOf(cleanQuery)
       const start = pos > 25 ? pos - 25 : 0
       const end = words.length > pos + 25 ? pos + 25 : words.length

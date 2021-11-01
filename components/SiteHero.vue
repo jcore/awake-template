@@ -1,11 +1,6 @@
 <template>
   <section :class="`hero is-medium hero-theme-${computedTheme}`">
-    <img
-      class="hero-bg-img"
-      :src="responsiveImage.src"
-      :lazy="false"
-      :srcset="responsiveImage.srcSet"
-    />
+    <img class="hero-bg-img" :src="responsiveImage.src" :lazy="false" :srcset="responsiveImage.srcSet" />
     <div class="hero-body">
       <div class="container">
         <h1 class="title animated fadeInUp">
@@ -15,10 +10,7 @@
           {{ subtitle }}
         </h2>
         <br />
-        <div
-          v-if="$slots.default"
-          class="under-subtitle animated fadeInDown slower"
-        >
+        <div v-if="$slots.default" class="under-subtitle animated fadeInDown slower">
           <slot />
         </div>
       </div>

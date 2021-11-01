@@ -7,24 +7,15 @@
     >
       Load Comments
     </a>
-    <intersection-observer
-      v-if="$siteConfig.disqus.loadingStrategy === 'lazy'"
-      @view="displayed = true"
-    />
+    <intersection-observer v-if="$siteConfig.disqus.loadingStrategy === 'lazy'" @view="displayed = true" />
     <vue-disqus
-      v-if="
-        $siteConfig.disqus.siteShortName &&
-          (displayed || $siteConfig.disqus.loadingStrategy === 'onload')
-      "
+      v-if="$siteConfig.disqus.siteShortName && (displayed || $siteConfig.disqus.loadingStrategy === 'onload')"
       :shortname="$siteConfig.disqus.siteShortName"
       :identifier="identifier"
     />
 
     <!-- Warning to Provide Disqus Site Short Name -->
-    <div
-      v-if="$siteConfig.disqus.on && !$siteConfig.disqus.siteShortName"
-      class="notification is-danger"
-    >
+    <div v-if="$siteConfig.disqus.on && !$siteConfig.disqus.siteShortName" class="notification is-danger">
       Disqus site short name is required!
     </div>
   </div>

@@ -15,9 +15,7 @@ export default {
       }
     }
     initNetlifyId()
-    document
-      .getElementById('netlify-identity-widget-script')
-      .addEventListener('load', initNetlifyId)
+    document.getElementById('netlify-identity-widget-script').addEventListener('load', initNetlifyId)
   },
   beforeUpdate() {},
   updated() {},

@@ -1,18 +1,9 @@
 <template>
-  <nav
-    class="navbar has-shadow is-fixed-top"
-    role="navigation"
-    aria-label="main navigation"
-  >
+  <nav class="navbar has-shadow is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link class="navbar-item" to="/">
         <site-logo v-if="$siteConfig.logo === 'logo-component'" />
-        <img
-          v-else
-          :src="$siteConfig.logo"
-          :alt="$siteConfig.siteName"
-          class="logo"
-        />
+        <img v-else :src="$siteConfig.logo" :alt="$siteConfig.siteName" class="logo" />
       </nuxt-link>
       <hamburger-button @click="active = !active" />
     </div>
@@ -24,12 +15,7 @@
       }"
     >
       <ul class="navbar-end">
-        <li
-          v-for="item in $siteConfig.mainMenu"
-          :key="item.link"
-          class="navbar-item"
-          @click="active = false"
-        >
+        <li v-for="item in $siteConfig.mainMenu" :key="item.link" class="navbar-item" @click="active = false">
           <component
             :is="item.link.startsWith('http') ? 'a' : 'nuxt-link'"
             :href="item.link"

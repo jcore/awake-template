@@ -1,10 +1,5 @@
 <template>
-  <modal-overlay
-    id="newsletter-modal"
-    :title="title"
-    trigger-text="Subscribe To Newsletter"
-    class="newsletter-modal"
-  >
+  <modal-overlay id="newsletter-modal" :title="title" trigger-text="Subscribe To Newsletter" class="newsletter-modal">
     <news-letter-form />
   </modal-overlay>
 </template>
@@ -15,9 +10,7 @@ export default {
   components: { ModalOverlay, NewsLetterForm },
   computed: {
     title() {
-      return (
-        this.$siteConfig.newsletter.heading || 'Subscribe to Our Newsletter'
-      )
+      return this.$siteConfig.newsletter.heading || 'Subscribe to Our Newsletter'
     }
   }
 }

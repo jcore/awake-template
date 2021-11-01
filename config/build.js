@@ -20,11 +20,7 @@ if (process.env.NODE_ENV === 'production') {
     },
     plugins: [
       purgecss({
-        content: [
-          './pages/**/*.vue',
-          './layouts/**/*.vue',
-          './components/**/*.vue'
-        ],
+        content: ['./pages/**/*.vue', './layouts/**/*.vue', './components/**/*.vue'],
         css: css,
         whitelist: [
           'html',

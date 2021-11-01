@@ -28,7 +28,5 @@ export const getFormattedDate = (date) => {
     'December'
   ]
   const dateObj = new Date(date)
-  return `${
-    months[dateObj.getMonth()]
-  } ${dateObj.getDate()}, ${dateObj.getFullYear()}`
+  return `${months[dateObj.getMonth()]} ${dateObj.getDate()}, ${dateObj.getFullYear()}`
 }

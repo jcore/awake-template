@@ -43,9 +43,7 @@ export default {
             .replace('"', '')
           let replace = `src="${origImage}"`
           const generatedImage =
-            origImage.startsWith('http') || origImage.endsWith('.gif')
-              ? origImage
-              : require(`~/assets${origImage}`)
+            origImage.startsWith('http') || origImage.endsWith('.gif') ? origImage : require(`~/assets${origImage}`)
 
           if (typeof generatedImage === 'string') {
             if (origImage.startsWith('/')) replace = `src="${generatedImage}"`

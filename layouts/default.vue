@@ -1,9 +1,5 @@
 <template>
-  <div
-    :class="
-      `site-layout-width-${$siteConfig.layout.width} posts-theme-${$siteConfig.posts.theme}`
-    "
-  >
+  <div :class="`site-layout-width-${$siteConfig.layout.width} posts-theme-${$siteConfig.posts.theme}`">
     <site-nav />
     <nuxt />
     <news-letter-slide-out v-if="$siteConfig.newsletter.on" />
@@ -38,8 +34,7 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: this.$store.state.featureImage
-            ? (process.env.URL ? process.env.URL : '') +
-              require(`~/assets${this.$store.state.featureImage}`)
+            ? (process.env.URL ? process.env.URL : '') + require(`~/assets${this.$store.state.featureImage}`)
             : ''
         },
         {

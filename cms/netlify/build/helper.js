@@ -25,10 +25,7 @@ export function createPagination(numPages, items, dir) {
   let currentPage = 0
   for (let i = 0; i < paginated.length; i++) {
     currentPage = i + 1
-    const chunkWriteStream = fs.createWriteStream(
-      `${dir}/page-${currentPage}.json`,
-      'UTF-8'
-    )
+    const chunkWriteStream = fs.createWriteStream(`${dir}/page-${currentPage}.json`, 'UTF-8')
     chunkWriteStream.write(JSON.stringify(paginated[i]))
   }
   return paginated.length

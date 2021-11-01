@@ -42,6 +42,19 @@ export default {
   },
   fetch({ store, params }) {
     setPageData(store, { slug: 'home' })
+  },
+  created() {
+    // adds the event listener function that will handle the event
+    this.$nuxt.$on('click', () => {
+      console.log('User logged in!')
+    })
+  },
+  beforeDestroy() {
+    // removes event listener
+    this.$nuxt.$off('click')
+  },
+  mounted() {
+    this.push('WEB', 'VIEW', '/home')
   }
 }
 </script>

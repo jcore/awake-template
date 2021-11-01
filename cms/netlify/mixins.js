@@ -35,11 +35,7 @@ export const getByNumberMixin = {
       numbered = flattenResource(numbered)
       if (numbered.length < number) {
         try {
-          const more = await this.getByNumber(
-            number - numbered.length,
-            filter,
-            false
-          )
+          const more = await this.getByNumber(number - numbered.length, filter, false)
           numbered = numbered.concat(more)
         } catch (err) {
           return numbered
@@ -65,9 +61,7 @@ export const getByPageMixin = {
       }
     }
     try {
-      let categories = await this.axios.$get(
-        `api/${this.slugPlural}/page-${page}.json`
-      )
+      let categories = await this.axios.$get(`api/${this.slugPlural}/page-${page}.json`)
       categories = flattenResource(categories)
       return categories.filter(filter)
     } catch (err) {
