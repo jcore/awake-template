@@ -5,18 +5,19 @@ Vue.mixin({
       console.log('firing Boxever push' + channel + ' ' + type + ' ' + page)
       if (window._boxever && window.Boxever) {
         window._boxeverq.push(() => {
-          const searchEvent = {
+          let viewEvent = {
             browser_id: window.Boxever.getID(),
             channel: channel,
             type: type,
             language: 'EN',
-            currency: 'EUR',
+            currency: 'USD',
             page: page,
             pos: 'JuliaGavrilova-pos'
           }
+          viewEvent = window.Boxever.addUTMParams(viewEvent)
           // Invoke event create
           // (<event msg>, <callback function>, <format>)
-          window.Boxever.eventCreate(searchEvent, (data) => {}, 'json')
+          window.Boxever.eventCreate(viewEvent, (data) => {}, 'json')
         })
       }
     },
@@ -24,15 +25,41 @@ Vue.mixin({
       console.log('firing Boxever boxeverOrderProduct')
       if (window._boxever && window.Boxever) {
         window._boxeverq.push(() => {
+          const addEvent = {
+            browser_id: window.Boxever.getID(),
+            channel: 'WEB',
+            type: 'ADD',
+            language: 'EN',
+            currency: 'USD',
+            page: '/product',
+            pos: 'JuliaGavrilova-pos',
+            product: {
+              type: 'BET',
+              item_id: 'TRAINING_90',
+              name: 'Boxever training',
+              orderedAt: '2015-08-23T16:17:16.000Z',
+              quantity: 1,
+              price: 100,
+              productId: 'CORRECT_SCORE',
+              currencyCode: 'USD',
+              originalPrice: 100,
+              originalCurrencyCode: 'EUR',
+              referenceId: 'BET_001-1'
+            }
+          }
+          // Invoke event create
+          // (<event msg>, <callback function>, <format>)
+          window.Boxever.eventCreate(addEvent, (data) => {}, 'json')
+
           const searchEvent = {
             browser_id: window.Boxever.getID(),
             channel: 'WEB',
             type: 'CONFIRM',
             language: 'EN',
-            currency: 'EUR',
+            currency: 'USD',
             page: '/product',
             pos: 'JuliaGavrilova-pos',
-            product: [{ item_id: 'FLIGHT_1' }, { item_id: 'FLIGHT_2' }, { item_id: 'BAG_1' }, { item_id: 'SEAT_1' }]
+            product: [{ item_id: 'TRAINING_90' }]
           }
           // Invoke event create
           // (<event msg>, <callback function>, <format>)
@@ -43,7 +70,7 @@ Vue.mixin({
             channel: 'WEB',
             type: 'CHECKOUT',
             language: 'EN',
-            currency: 'EUR',
+            currency: 'USD',
             page: '/product',
             pos: 'JuliaGavrilova-pos',
             reference_id: 'ABC123',
@@ -59,33 +86,33 @@ Vue.mixin({
       console.log('firing Boxever add')
       if (window._boxever && window.Boxever) {
         window._boxeverq.push(() => {
-          const searchEvent = {
+          const addEvent = {
             browser_id: window.Boxever.getID(),
             channel: 'WEB',
             type: 'ADD',
             language: 'EN',
-            currency: 'EUR',
+            currency: 'USD',
             page: '/product',
             pos: 'JuliaGavrilova-pos',
             product: {
               type: 'BET',
-              item_id: 'EXACT_90',
-              name: 'Exact score after 90 minutes',
+              item_id: 'TRAINING_90',
+              name: 'Boxever training',
               orderedAt: '2015-08-23T16:17:16.000Z',
               quantity: 1,
-              price: '100.00',
+              price: 100,
               productId: 'CORRECT_SCORE',
-              currencyCode: 'EUR',
-              originalPrice: '100.00',
+              currencyCode: 'USD',
+              originalPrice: 100,
               originalCurrencyCode: 'EUR',
               referenceId: 'BET_001-1'
             }
           }
           // Invoke event create
           // (<event msg>, <callback function>, <format>)
-          window.Boxever.eventCreate(searchEvent, (data) => {}, 'json')
+          window.Boxever.eventCreate(addEvent, (data) => {}, 'json')
 
-          const closeSession = {
+          /* const closeSession = {
             type: 'FORCE_CLOSE',
             channel: 'WEB',
             browser_id: window.Boxever.getID(),
@@ -94,7 +121,7 @@ Vue.mixin({
             page: '/home'
           }
 
-          window.Boxever.eventCreate(closeSession, (data) => {}, 'json')
+          window.Boxever.eventCreate(closeSession, (data) => {}, 'json') */
         })
       }
     },
@@ -110,7 +137,7 @@ Vue.mixin({
             language: 'EN',
             currency: 'EUR',
             page: '/home',
-            email: 'julia.gavrilova@test.com',
+            email: 'julia.gavrilova.xc@test.com',
             firstname: 'Julia',
             lastname: 'Gavrilova'
           }

@@ -29,9 +29,9 @@
           <site-search />
         </li>
         <li>
-          <div @click="login">
+          <button @click="login">
             Login
-          </div>
+          </button>
         </li>
       </ul>
     </div>
