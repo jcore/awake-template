@@ -33,6 +33,11 @@
             Login
           </button>
         </li>
+        <li>
+          <button @click="abandon">
+            Abandon Session
+          </button>
+        </li>
       </ul>
     </div>
   </nav>
@@ -51,6 +56,9 @@ export default {
   methods: {
     login() {
       this.identifyGuest()
+    },
+    abandon() {
+      this.abandonSession()
     }
   }
 }

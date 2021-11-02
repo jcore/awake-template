@@ -83,11 +83,11 @@ export default {
   methods: {
     onClick() {
       console.log('link clicked')
-      this.boxeverAddProduct('WEB', 'ADD', this.link)
+      this.boxeverAddProduct(100)
     },
     onClickOrder() {
       console.log('link clicked')
-      this.boxeverOrderProduct('WEB', 'ADD', this.link)
+      this.boxeverOrderProduct(100)
     }
   }
 }

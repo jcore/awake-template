@@ -25,7 +25,7 @@ Vue.mixin({
       console.log('firing Boxever boxeverOrderProduct')
       if (window._boxever && window.Boxever) {
         window._boxeverq.push(() => {
-          const addEvent = {
+          let addEvent = {
             browser_id: window.Boxever.getID(),
             channel: 'WEB',
             type: 'ADD',
@@ -47,11 +47,12 @@ Vue.mixin({
               referenceId: 'BET_001-1'
             }
           }
+          addEvent = window.Boxever.addUTMParams(addEvent)
           // Invoke event create
           // (<event msg>, <callback function>, <format>)
           window.Boxever.eventCreate(addEvent, (data) => {}, 'json')
 
-          const searchEvent = {
+          let searchEvent = {
             browser_id: window.Boxever.getID(),
             channel: 'WEB',
             type: 'CONFIRM',
@@ -61,11 +62,12 @@ Vue.mixin({
             pos: 'JuliaGavrilova-pos',
             product: [{ item_id: 'TRAINING_90' }]
           }
+          searchEvent = window.Boxever.addUTMParams(searchEvent)
           // Invoke event create
           // (<event msg>, <callback function>, <format>)
           window.Boxever.eventCreate(searchEvent, (data) => {}, 'json')
 
-          const checkoutEvent = {
+          let checkoutEvent = {
             browser_id: window.Boxever.getID(),
             channel: 'WEB',
             type: 'CHECKOUT',
@@ -76,17 +78,18 @@ Vue.mixin({
             reference_id: 'ABC123',
             status: 'PURCHASED'
           }
+          checkoutEvent = window.Boxever.addUTMParams(checkoutEvent)
           // Invoke event create
           // (<event msg>, <callback function>, <format>)
           window.Boxever.eventCreate(checkoutEvent, (data) => {}, 'json')
         })
       }
     },
-    boxeverAddProduct() {
+    boxeverAddProduct(price) {
       console.log('firing Boxever add')
       if (window._boxever && window.Boxever) {
         window._boxeverq.push(() => {
-          const addEvent = {
+          let addEvent = {
             browser_id: window.Boxever.getID(),
             channel: 'WEB',
             type: 'ADD',
@@ -100,28 +103,18 @@ Vue.mixin({
               name: 'Boxever training',
               orderedAt: '2015-08-23T16:17:16.000Z',
               quantity: 1,
-              price: 100,
+              price: price,
               productId: 'CORRECT_SCORE',
               currencyCode: 'USD',
-              originalPrice: 100,
+              originalPrice: price,
               originalCurrencyCode: 'EUR',
               referenceId: 'BET_001-1'
             }
           }
+          addEvent = window.Boxever.addUTMParams(addEvent)
           // Invoke event create
           // (<event msg>, <callback function>, <format>)
           window.Boxever.eventCreate(addEvent, (data) => {}, 'json')
-
-          /* const closeSession = {
-            type: 'FORCE_CLOSE',
-            channel: 'WEB',
-            browser_id: window.Boxever.getID(),
-            pos: 'JuliaGavrilova-pos',
-            _bx_extended_message: '1',
-            page: '/home'
-          }
-
-          window.Boxever.eventCreate(closeSession, (data) => {}, 'json') */
         })
       }
     },
@@ -129,7 +122,7 @@ Vue.mixin({
       console.log('firing Boxever push')
       if (window._boxever && window.Boxever) {
         window._boxeverq.push(() => {
-          const searchEvent = {
+          let searchEvent = {
             browser_id: window.Boxever.getID(),
             pos: 'JuliaGavrilova-pos',
             channel: 'WEB',
@@ -141,9 +134,27 @@ Vue.mixin({
             firstname: 'Julia',
             lastname: 'Gavrilova'
           }
+          searchEvent = window.Boxever.addUTMParams(searchEvent)
           // Invoke event create
           // (<event msg>, <callback function>, <format>)
           window.Boxever.eventCreate(searchEvent, (data) => {}, 'json')
+        })
+      }
+    },
+    abandonSession() {
+      console.log('firing Boxever push')
+      if (window._boxever && window.Boxever) {
+        window._boxeverq.push(() => {
+          let closeSession = {
+            type: 'FORCE_CLOSE',
+            channel: 'WEB',
+            browser_id: window.Boxever.getID(),
+            pos: 'JuliaGavrilova-pos',
+            _bx_extended_message: '1',
+            page: '/home'
+          }
+          closeSession = window.Boxever.addUTMParams(closeSession)
+          window.Boxever.eventCreate(closeSession, (data) => {}, 'json')
         })
       }
     }
