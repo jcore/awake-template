@@ -38,9 +38,10 @@
         };
         // Invoke event create 
         // (<event msg>, <callback function>, <format>)
-        Boxever.eventCreate(searchEvent, function(data){}, 'json');
-        console.log(Boxever.getBucketNumber());
+        Boxever.eventCreate(searchEvent, function(data){}, 'json');        
       });
+
+      console.log(Boxever.getBucketNumber());
 
       function submitToBoxever(e){
         console.log(e);
