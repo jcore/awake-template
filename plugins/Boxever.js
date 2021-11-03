@@ -34,7 +34,7 @@ Vue.mixin({
             page: '/product',
             pos: 'JuliaGavrilova-pos',
             product: {
-              type: 'BET',
+              type: 'TRAINING',
               item_id: 'TRAINING_90',
               name: 'Boxever training',
               orderedAt: '2015-08-23T16:17:16.000Z',
@@ -44,7 +44,7 @@ Vue.mixin({
               currencyCode: 'USD',
               originalPrice: 100,
               originalCurrencyCode: 'EUR',
-              referenceId: 'BET_001-1'
+              referenceId: 'ABC123'
             }
           }
           addEvent = window.Boxever.addUTMParams(addEvent)
