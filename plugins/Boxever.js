@@ -44,7 +44,7 @@ Vue.mixin({
               currencyCode: 'USD',
               originalPrice: 100,
               originalCurrencyCode: 'EUR',
-              referenceId: 'ABC123'
+              reference_id: 'ABC123'
             }
           }
           addEvent = window.Boxever.addUTMParams(addEvent)
